@@ -44,3 +44,28 @@ def mutation_function(genome):
         return genome
     
 
+def genetic_algorithm():
+    population = init_population(POPULATION_SIZE, GENOME_LENGTH)
+
+    for generation in range(GENERATIONS):
+        fitness_values = [fitness(genome) for genome in population]
+
+        new_population = []
+        for _ in range(POPULATION_SIZE // 2):
+            parent1 = select_parent(population, fitness_values)
+            parent2 = select_parent(population, fitness_values)
+            offspring1, offspring2 = crossover_function(parent1, parent2)
+            new_population.extend([mutation_function(offspring1), mutation_function(offspring2)])
+
+        population = new_population
+        fitness_values = [fitness(genome) for genome in population]
+        best_fitness = max(fitness_values)
+        print(f"Generation {generation}: Best Fitness = {best_fitness}")
+
+    best_index = fitness_values.index(max(fitness_values))
+    best_solution = population[best_index]
+    print(f"Best Solution: {best_solution}")
+    print(f"Best Fitness: {fitness(best_solution)}")
+
+if __name__ == "__main__":
+    genetic_algorithm()
