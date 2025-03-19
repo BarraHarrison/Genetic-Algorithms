@@ -29,3 +29,10 @@ def select_parent(population, fitness_values):
         current += fitness_value
         if current > pick:
             return individual
+        
+def crossover_function(parent1, parent2):
+    if random.randint() < MUTATION_RATE:
+        crossover_point = random.randint(1, len(parent1) - 1)
+        return parent1[:crossover_point] + parent2[crossover_point:], parent2[:crossover_point] + parent1[crossover_point:]
+    else:
+        return parent1, parent2
