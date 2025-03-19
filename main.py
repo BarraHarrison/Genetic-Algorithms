@@ -36,3 +36,11 @@ def crossover_function(parent1, parent2):
         return parent1[:crossover_point] + parent2[crossover_point:], parent2[:crossover_point] + parent1[crossover_point:]
     else:
         return parent1, parent2
+    
+def mutation_function(genome):
+    for  i in range(len(genome)):
+        if random.random() < MUTATION_RATE:
+            genome[i] = abs(genome[i] - 1)
+        return genome
+    
+
