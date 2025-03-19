@@ -31,7 +31,7 @@ def select_parent(population, fitness_values):
             return individual
         
 def crossover_function(parent1, parent2):
-    if random.randint() < CROSSOVER_RATE:
+    if random.random() < CROSSOVER_RATE:
         crossover_point = random.randint(1, len(parent1) - 1)
         return parent1[:crossover_point] + parent2[crossover_point:], parent2[:crossover_point] + parent1[crossover_point:]
     else:
