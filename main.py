@@ -70,6 +70,6 @@ def genetic_algorithm():
 if __name__ == "__main__":
     genetic_algorithm()
 
-# Results ->
+# Results -> (First time running the program)
 # Best Solution: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]
 # Best Fitness: 19
